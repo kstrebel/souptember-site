@@ -1,13 +1,15 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
-// import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { HomeComponent } from "./home/home.component";
-import { CountdownComponent } from "./countdown/countdown.component";
-import { AboutComponent } from "./about/about.component";
-import { InvolvementComponent } from "./involvement/involvement.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
+import { AboutComponent } from "./about/about.component";
+import { AppComponent } from "./app.component";
+import { CountdownComponent } from "./countdown/countdown.component";
+import { HomeComponent } from "./home/home.component";
+import { InvolvementComponent } from "./involvement/involvement.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
     declarations: [
@@ -21,13 +23,20 @@ import { RouterModule } from "@angular/router";
         BrowserModule,
         RouterModule.forRoot([
             { path: "", title: "Souptember Home", component: HomeComponent },
-            { path: "about", title: "About Souptember", component: AboutComponent },
+            {
+                path: "about",
+                title: "About Souptember",
+                component: AboutComponent,
+            },
             {
                 path: "involvement",
                 title: "Souptember Involvement",
                 component: InvolvementComponent,
             },
         ]),
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
