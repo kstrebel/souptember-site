@@ -12,33 +12,33 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        CountdownComponent,
-        AboutComponent,
-        InvolvementComponent,
-    ],
-    imports: [
-        BrowserModule,
-        RouterModule.forRoot([
-            { path: "", title: "Souptember Home", component: HomeComponent },
-            {
-                path: "about",
-                title: "About Souptember",
-                component: AboutComponent,
-            },
-            {
-                path: "involvement",
-                title: "Souptember Involvement",
-                component: InvolvementComponent,
-            },
-        ]),
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		CountdownComponent,
+		AboutComponent,
+		InvolvementComponent,
+	],
+	imports: [
+		BrowserModule,
+		RouterModule.forRoot([
+			{ path: "", title: "Souptember Home", component: HomeComponent },
+			{
+				path: "about",
+				title: "About Souptember",
+				component: AboutComponent,
+			},
+			{
+				path: "involvement",
+				title: "Souptember Involvement",
+				component: InvolvementComponent,
+			},
+		]),
+		BrowserAnimationsModule,
+		MatToolbarModule,
+		MatIconModule,
+	],
+	providers: [],
+	bootstrap: [AppComponent],
 })
 export class AppModule {}

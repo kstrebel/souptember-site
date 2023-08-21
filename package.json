@@ -10,7 +10,7 @@
     "test:firefox": "ng test --browsers Firefox",
     "test:headless": "ng test --watch=false --browsers ChromeHeadless",
     "lint": "ng lint",
-    "fix-code": "prettier-eslint --write 'src/**/*.{js,jsx,ts}",
+    "fix-code": "prettier-eslint --eslint-config-path ./.eslintrc.js --write '**/*.ts'",
     "fix": "prettier-eslint --write 'src/**/*.{js,jsx,ts}' & prettier-stylelint --write 'src/**/*.{css,scss}'"
   },
   "private": true,

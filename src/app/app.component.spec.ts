@@ -4,30 +4,30 @@ import { AppComponent } from "./app.component";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 describe("AppComponent", () => {
-	beforeEach(async () => {
-		await TestBed.configureTestingModule({
-			imports: [RouterTestingModule],
-			declarations: [AppComponent],
-			schemas: [NO_ERRORS_SCHEMA],
-		}).compileComponents();
-	});
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [RouterTestingModule],
+            declarations: [AppComponent],
+            schemas: [NO_ERRORS_SCHEMA],
+        }).compileComponents();
+    });
 
-	it("should create the app", () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		const app = fixture.componentInstance;
-		expect(app).toBeTruthy();
-	});
+    it("should create the app", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.componentInstance;
+        expect(app).toBeTruthy();
+    });
 
-	it("should have as title 'souptember-site'", () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		const app = fixture.componentInstance;
-		expect(app.title).toEqual("souptember-site");
-	});
+    it("should have as title 'souptember-site'", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.componentInstance;
+        expect(app.title).toEqual("souptember-site");
+    });
 
-	it("should render title", () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		fixture.detectChanges();
-		const compiled = fixture.nativeElement as HTMLElement;
-		expect(compiled.querySelector(".content span")?.textContent).not.toBeNull();
-	});
+    it("should render title", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        fixture.detectChanges();
+        const compiled = fixture.nativeElement as HTMLElement;
+        expect(compiled.querySelector(".content span")?.textContent).not.toBeNull();
+    });
 });
