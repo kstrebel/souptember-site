@@ -2,7 +2,10 @@
 	"prettier.eslintIntegration": true,
 	"prettier.stylelintIntegration": true,
 	"vs-code-prettier-eslint.prettierLast": true,
-	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 	// "[typescript]": {
 	//     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
 	// },
