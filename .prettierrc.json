@@ -1,7 +1,7 @@
 {
-	"eslintIntegration": true,
-    "printWidth": 100,
-	"singleQuote": false,
+	"printWidth": 100,
 	"trailingComma": "es5",
+	"semi": true,
+	"singleQuote": false,
 	"useTabs": true
 }
