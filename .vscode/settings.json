@@ -1,10 +1,10 @@
 {
-    "prettier.eslintIntegration": true,
-    "prettier.stylelintIntegration": true,
-    "vs-code-prettier-eslint.prettierLast": true,
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-    // "[typescript]": {
-    //     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    // },
-    // "editor.codeActionsOnSave": { "source.fixAll.eslint": true }
+	"prettier.eslintIntegration": true,
+	"prettier.stylelintIntegration": true,
+	"vs-code-prettier-eslint.prettierLast": true,
+	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	// "[typescript]": {
+	//     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+	// },
+	// "editor.codeActionsOnSave": { "source.fixAll.eslint": true }
 }
