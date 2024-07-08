@@ -1,0 +1,36 @@
+<form [formGroup]="soupTypeFg" #soupTypeForm="ngForm" (ngSubmit)="submitForm()">
+	<mat-form-field>
+		<mat-label>SoupType to edit</mat-label>
+		<mat-select matSelect formControlName="typeId" placeholder="Select a type to edit">
+			<mat-option value="0">[New Soup Type]</mat-option>
+			<ng-container *ngFor="let type of soupTypes">
+				<mat-option [value]="type.typeId">{{ type.typeName }}</mat-option>
+			</ng-container>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Name</mat-label>
+		<input matInput formControlName="typeName" placeholder="Type of soup" value="Bisque" />
+		<mat-error *ngIf="soupTypeFg.get('typeName')?.hasError('required')"
+			>A name is required</mat-error
+		>
+	</mat-form-field>
+	<div class="form-buttons">
+		<button type="submit" [disabled]="soupTypeFg.invalid" mat-raised-button color="primary">
+			{{ soupTypeObj.typeId === "0" ? "Create New" : "Modify" }}
+		</button>
+		<button type="button" mat-stroked-button color="neutral" (click)="clearForm()">
+			Cancel
+		</button>
+		<button
+			type="button"
+			[disabled]="soupTypeObj.typeId === '0'"
+			mat-flat-button
+			color="warn"
+			(click)="deleteSoupType()"
+		>
+			Delete
+		</button>
+	</div>
+	<p *ngIf="submissionMessage">{{ submissionMessage }}</p>
+</form>

@@ -1,43 +1,50 @@
 <header>
-  <mat-toolbar>
-    <button
-      mat-icon-button
-      [matMenuTriggerFor]="menu"
-      class="nav-menu"
-      aria-label="Navigation icon-button with menu icon"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>home</mat-icon>
-        <a routerLink="" routerLinkActive="activePage" ariaCurrentWhenActive="page">Home</a>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>info</mat-icon>
-        <a routerLink="/about" routerLinkActive="activePage" ariaCurrentWhenActive="page">About</a>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>group</mat-icon>
-        <a routerLink="/involvement" routerLinkActive="activePage" ariaCurrentWhenActive="page">Involvement</a>
-      </button>
-    </mat-menu>
-    <span>Souptember</span>
-    <span class="nav-spacer"></span>
-  </mat-toolbar>
-  <!-- <nav><a routerLink="" routerLinkActive="activePage" ariaCurrentWhenActive="page">Home</a>
+	<mat-toolbar>
+		<button
+			mat-icon-button
+			[matMenuTriggerFor]="menu"
+			class="nav-menu"
+			aria-label="Navigation icon-button with menu icon"
+		>
+			<mat-icon>menu</mat-icon>
+		</button>
+		<mat-menu #menu="matMenu">
+			<button mat-menu-item>
+				<mat-icon>home</mat-icon>
+				<a routerLink="" routerLinkActive="activePage" ariaCurrentWhenActive="page">Home</a>
+			</button>
+			<button mat-menu-item>
+				<mat-icon>info</mat-icon>
+				<a routerLink="/about" routerLinkActive="activePage" ariaCurrentWhenActive="page"
+					>About</a
+				>
+			</button>
+			<button mat-menu-item>
+				<mat-icon>group</mat-icon>
+				<a
+					routerLink="/involvement"
+					routerLinkActive="activePage"
+					ariaCurrentWhenActive="page"
+					>Involvement</a
+				>
+			</button>
+		</mat-menu>
+		<span>Souptember</span>
+		<span class="nav-spacer"></span>
+	</mat-toolbar>
+	<!-- <nav><a routerLink="" routerLinkActive="activePage" ariaCurrentWhenActive="page">Home</a>
     <a routerLink="/about" routerLinkActive="activePage" ariaCurrentWhenActive="page">About</a>
     <a routerLink="/involvement" routerLinkActive="activePage" ariaCurrentWhenActive="page">Involvement</a>
   </nav> -->
 </header>
 
 <main>
-  <router-outlet></router-outlet>
-  <p>about</p>
-  <p>recipes homepage</p>
-  <p>recipe 1</p>
-  <p>recipe 1</p>
-  <p>recipe 3</p>
+	<router-outlet></router-outlet>
+	<p>about</p>
+	<p>recipes homepage</p>
+	<p>recipe 1</p>
+	<p>recipe 1</p>
+	<p>recipe 3</p>
 </main>
 
 <footer>&copy;2023 Souptember</footer>

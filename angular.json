@@ -61,7 +61,8 @@
 							"browserTarget": "souptember-site:build:production"
 						},
 						"development": {
-							"browserTarget": "souptember-site:build:development"
+							"browserTarget": "souptember-site:build:development",
+							"proxyConfig": "src/proxy.conf.json"
 						}
 					},
 					"defaultConfiguration": "development"

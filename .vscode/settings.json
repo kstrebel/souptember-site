@@ -5,6 +5,12 @@
 	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
 	"[github-actions-workflow]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 	// "[typescript]": {
 	//     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
