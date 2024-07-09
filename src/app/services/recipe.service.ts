@@ -40,7 +40,7 @@ export class RecipeService {
 			.pipe(map((res) => this.buildSoupType(res)));
 	}
 
-	deleteSoupType(id: string) {
+	deleteSoupType(id: number) {
 		return this.http.delete(`/${RECIPE_URL}/${SOUP_TYPE_URL}/${id}`).pipe(
 			map((res) => {
 				console.log(res);

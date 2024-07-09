@@ -30,7 +30,7 @@ export class SoupTypeFormComponent implements OnInit {
 
 		this.soupTypeFg.controls.typeId.valueChanges?.subscribe(async (newValue) => {
 			if (newValue !== this.soupTypeObj.typeId) {
-				if (newValue !== "0") {
+				if (newValue !== 0) {
 					const newSoupTypeObj = this.soupTypes.find((type) => {
 						return type.typeId === newValue;
 					});
@@ -41,6 +41,14 @@ export class SoupTypeFormComponent implements OnInit {
 				}
 				this.updateFormFromObj();
 			}
+		});
+
+		this.soupTypeFg.controls.typeName.valueChanges?.subscribe(() => {
+			// this.updateFormFromObj();
+			console.log("name changed", this.soupTypeFg.controls.typeName.value);
+			// );
+			this.soupTypeObj.typeName = this.soupTypeFg.controls.typeName.value;
+			// ;
 		});
 	}
 
@@ -71,15 +79,15 @@ export class SoupTypeFormComponent implements OnInit {
 
 	submitForm() {
 		if (this.soupTypeFg.valid) {
-			console.log("submit form with data", this.soupTypeFg.toString());
-			this.recipeService
-				.editSoupType(this.recipeService.buildSoupType(this.soupTypeFg.value))
-				.subscribe((res) => {
-					this.soupTypeForm.resetForm();
-					this.submissionMessage = `Created soup type ${res.typeName}`;
-					this.updateSoupTypes();
-					console.log("Submitted form and returned", res);
-				});
+			console.log("submit form with data", this.soupTypeFg.value);
+			// this.soupTypeObj=this.recipeService.buildSoupType(this.soupTypeFg.value);
+			console.log("submit form with data obj", this.soupTypeObj);
+			this.recipeService.editSoupType(this.soupTypeObj).subscribe((res) => {
+				this.soupTypeForm.resetForm();
+				this.submissionMessage = `Created soup type ${res.typeName}`;
+				this.updateSoupTypes();
+				console.log("Submitted form and returned", res);
+			});
 		}
 	}
 }

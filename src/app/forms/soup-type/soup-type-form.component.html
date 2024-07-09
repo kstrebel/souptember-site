@@ -17,14 +17,14 @@
 	</mat-form-field>
 	<div class="form-buttons">
 		<button type="submit" [disabled]="soupTypeFg.invalid" mat-raised-button color="primary">
-			{{ soupTypeObj.typeId === "0" ? "Create New" : "Modify" }}
+			{{ soupTypeObj.typeId === 0 ? "Create New" : "Modify" }}
 		</button>
 		<button type="button" mat-stroked-button color="neutral" (click)="clearForm()">
 			Cancel
 		</button>
 		<button
 			type="button"
-			[disabled]="soupTypeObj.typeId === '0'"
+			[disabled]="soupTypeObj.typeId === 0"
 			mat-flat-button
 			color="warn"
 			(click)="deleteSoupType()"
