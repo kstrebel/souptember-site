@@ -30,7 +30,7 @@ export class SoupTypeFormComponent implements OnInit {
 
 		this.soupTypeFg.controls.typeId.valueChanges?.subscribe(async (newValue) => {
 			if (newValue !== this.soupTypeObj.typeId) {
-				if (newValue !== "0") {
+				if (newValue !== 0) {
 					const newSoupTypeObj = this.soupTypes.find((type) => {
 						return type.typeId === newValue;
 					});
@@ -62,23 +62,28 @@ export class SoupTypeFormComponent implements OnInit {
 
 	deleteSoupType() {
 		const deletedSoupType = this.soupTypeObj;
-		this.recipeService.deleteSoupType(deletedSoupType.typeId).subscribe(() => {
-			this.submissionMessage = `Deleted soup type ${deletedSoupType.typeName}`;
-			this.updateSoupTypes();
-			this.clearForm();
+		this.recipeService.deleteSoupType(deletedSoupType.typeId).subscribe((res) => {
+			if (res) {
+				this.submissionMessage = `Deleted SoupType ${deletedSoupType.typeName}`;
+				this.updateSoupTypes();
+				this.clearForm();
+			}
+			else {
+				this.submissionMessage = `Could not delete SoupType ${deletedSoupType.typeName}`;
+			}
 		});
 	}
 
 	submitForm() {
 		if (this.soupTypeFg.valid) {
-			console.log("submit form with data", this.soupTypeFg.toString());
+			console.log("Submit SoupType form with data", this.soupTypeFg.toString());
 			this.recipeService
 				.editSoupType(this.recipeService.buildSoupType(this.soupTypeFg.value))
 				.subscribe((res) => {
 					this.soupTypeForm.resetForm();
-					this.submissionMessage = `Created soup type ${res.typeName}`;
+					this.submissionMessage = `DB response: ${JSON.stringify(res)}`;
 					this.updateSoupTypes();
-					console.log("Submitted form and returned", res);
+					console.log("Submitted SoupType form and returned", res);
 				});
 		}
 	}
