@@ -1,0 +1,34 @@
+<form [formGroup]="tagFg" #tagForm="ngForm" (ngSubmit)="submitForm()">
+	<mat-form-field>
+		<mat-label>Tag to edit</mat-label>
+		<mat-select matSelect formControlName="tagId" placeholder="Select a type to edit">
+			<mat-option [value]="0">[New Tag]</mat-option>
+			<ng-container *ngFor="let tag of tags">
+				<mat-option [value]="tag.tagId">{{ tag.tagName }}</mat-option>
+			</ng-container>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Tag</mat-label>
+		<input matInput formControlName="tagName" placeholder="Name of tag" value="Vegetarian" />
+		<mat-error *ngIf="tagFg.get('tagName')?.hasError('required')">A name is required</mat-error>
+	</mat-form-field>
+	<div class="form-buttons">
+		<button type="submit" [disabled]="tagFg.invalid" mat-raised-button color="primary">
+			{{ tagObj.tagId === 0 ? "Create New" : "Modify" }}
+		</button>
+		<button type="button" mat-stroked-button color="neutral" (click)="clearForm()">
+			Cancel
+		</button>
+		<button
+			type="button"
+			[disabled]="tagObj.tagId === 0"
+			mat-flat-button
+			color="warn"
+			(click)="deleteTag()"
+		>
+			Delete
+		</button>
+	</div>
+	<p *ngIf="submissionMessage">{{ submissionMessage }}</p>
+</form>

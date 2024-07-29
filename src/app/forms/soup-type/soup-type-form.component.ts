@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
 import { SoupType } from "src/app/models/soupType";
-import { RecipeService } from "src/app/services/recipe.service";
+import { SoupTypeService } from "src/app/services/soup-type.service";
 
 @Component({
 	selector: "soup-type-form",
@@ -12,11 +12,10 @@ export class SoupTypeFormComponent implements OnInit {
 	@ViewChild("soupTypeForm")
 	private soupTypeForm!: NgForm;
 	soupTypeFg: FormGroup;
-	constructor(private recipeService: RecipeService) {
+	constructor(private soupTypeService: SoupTypeService) {
 		this.soupTypeFg = new FormGroup({
 			typeId: new FormControl(0, []),
 			typeName: new FormControl("", [Validators.required]),
-			// editing: new FormControl("0", []),
 		});
 	}
 
@@ -45,7 +44,7 @@ export class SoupTypeFormComponent implements OnInit {
 	}
 
 	updateSoupTypes() {
-		this.recipeService.getSoupTypes().subscribe((soupTypes) => {
+		this.soupTypeService.getSoupTypes().subscribe((soupTypes) => {
 			//sort on backend pls
 			this.soupTypes = soupTypes;
 		});
@@ -62,14 +61,15 @@ export class SoupTypeFormComponent implements OnInit {
 
 	deleteSoupType() {
 		const deletedSoupType = this.soupTypeObj;
-		this.recipeService.deleteSoupType(deletedSoupType.typeId).subscribe((res) => {
+		this.soupTypeService.deleteSoupType(deletedSoupType.typeId).subscribe((res) => {
 			if (res) {
-				this.submissionMessage = `Deleted SoupType ${deletedSoupType.typeName}`;
+				this.submissionMessage = `Deleted SoupType ${JSON.stringify(deletedSoupType)}`;
 				this.updateSoupTypes();
 				this.clearForm();
-			}
-			else {
-				this.submissionMessage = `Could not delete SoupType ${deletedSoupType.typeName}`;
+			} else {
+				this.submissionMessage = `Could not delete SoupType ${JSON.stringify(
+					deletedSoupType
+				)}`;
 			}
 		});
 	}
@@ -77,8 +77,8 @@ export class SoupTypeFormComponent implements OnInit {
 	submitForm() {
 		if (this.soupTypeFg.valid) {
 			console.log("Submit SoupType form with data", this.soupTypeFg.toString());
-			this.recipeService
-				.editSoupType(this.recipeService.buildSoupType(this.soupTypeFg.value))
+			this.soupTypeService
+				.editSoupType(this.soupTypeService.buildSoupType(this.soupTypeFg.value))
 				.subscribe((res) => {
 					this.soupTypeForm.resetForm();
 					this.submissionMessage = `DB response: ${JSON.stringify(res)}`;

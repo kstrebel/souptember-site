@@ -20,6 +20,7 @@ import { HomeComponent } from "./home/home.component";
 import { InvolvementComponent } from "./involvement/involvement.component";
 import { SoupTypeFormComponent } from "./forms/soup-type/soup-type-form.component";
 import { FormsComponent } from "./forms/forms.component";
+import { TagFormComponent } from "./forms/tag-form/tag-form.component";
 
 @NgModule({
 	declarations: [
@@ -30,6 +31,7 @@ import { FormsComponent } from "./forms/forms.component";
 		InvolvementComponent,
 		FormsComponent,
 		SoupTypeFormComponent,
+		TagFormComponent,
 	],
 	imports: [
 		BrowserModule,
